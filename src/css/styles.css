@@ -1,0 +1,151 @@
+body {
+  background-color: #212121;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+}
+.container {
+  min-height: 100vh;
+  margin: 0;
+  top: 0;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  display: grid;
+  grid-template-rows: 95% 5%;
+}
+
+canvas#waves {
+  z-index: 0;
+  position: absolute;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.content p, .footer p {
+  font-family: Montserrat-ExtraLight;
+  font-size: 23px;
+  color: #FFFFFF;
+  letter-spacing: 1.55px;
+  text-align: center;
+}
+
+.fadein {
+  -webkit-animation: fadein .8s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein .8s; /* Firefox < 16 */
+        -ms-animation: fadein .8s; /* Internet Explorer */
+         -o-animation: fadein .8s; /* Opera < 12.1 */
+            animation: fadein .8s;
+}
+.slideup {
+  -webkit-animation: slideup .8s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: slideup .8s; /* Firefox < 16 */
+        -ms-animation: slideup .8s; /* Internet Explorer */
+         -o-animation: slideup .8s; /* Opera < 12.1 */
+            animation: slideup .8s;
+}
+.slidedown {
+  -webkit-animation: slideup .8s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: slideup .8s; /* Firefox < 16 */
+        -ms-animation: slideup .8s; /* Internet Explorer */
+         -o-animation: slideup .8s; /* Opera < 12.1 */
+            animation: slideup .8s;
+}
+
+.content p:first-child {
+  
+}
+
+.content p:last-of-type {
+  
+}
+
+.actions {
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+}
+
+.actions button {
+  width: 200px;
+  padding: 20px;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions button.default {
+  border: 1px solid #6E6E6E;
+  background-color: #212121;
+}
+.actions button.primary {
+  background-color: #4B23FF;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.footer p, .footer a {
+  font-size: 16px;
+  color: #e0e0e0;
+  text-align: center;
+  text-decoration: none; 
+}
+
+.main-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  
+}
+
+.main-text h1 {
+  display: inline-block;
+  margin: 0 5px;
+  font-family: Montserrat-ExtraBold;
+  font-size: 101px;
+  text-align: center;
+  text-shadow: -5px 0 0 #D400FF;
+}
+
+
+.main-text h1:last-child {
+  text-shadow: -5px 0 0 #9013FE;
+}
+
+h1.circle1 {
+  background-image: linear-gradient(116deg, #EEEEEE 3%, #BD10E0 97%);
+}
+h1.circle2 {
+  background-image: linear-gradient(116deg, #BD10E0 3%, #9013FE 97%);
+}
+h1.circle {
+  color: transparent;
+  border-radius: 100%;
+  content: '';
+  height: 60%;
+  margin: 0;
+  text-shadow: none;
+}
+
+img.logo {
+  position: fixed;
+  margin: 20px;
+}
+
