@@ -11,7 +11,9 @@ body {
   position: relative;
   width: 100%;
   color: #fff;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 95% 5%;
   grid-template-rows: 95% 5%;
 }
 
@@ -21,10 +23,19 @@ canvas#waves {
 }
 
 .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   z-index: 1;
   max-width: 95%;
   margin: 0 auto;
@@ -39,38 +50,40 @@ canvas#waves {
 }
 
 .fadein {
-  -webkit-animation: fadein .8s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein .8s; /* Firefox < 16 */
-        -ms-animation: fadein .8s; /* Internet Explorer */
-         -o-animation: fadein .8s; /* Opera < 12.1 */
-            animation: fadein .8s;
+  /* animation-delay: 1s;
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+    animation: 3s ease 0s normal forwards 1 fadein;
 }
 .slideup {
-  -webkit-animation: slideup .8s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: slideup .8s; /* Firefox < 16 */
-        -ms-animation: slideup .8s; /* Internet Explorer */
-         -o-animation: slideup .8s; /* Opera < 12.1 */
-            animation: slideup .8s;
+  -webkit-animation: fadein 1s, slideup .8s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+            animation: fadein 1s, slideup .8s;
 }
 .slidedown {
-  -webkit-animation: slideup .8s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: slideup .8s; /* Firefox < 16 */
-        -ms-animation: slideup .8s; /* Internet Explorer */
-         -o-animation: slideup .8s; /* Opera < 12.1 */
-            animation: slideup .8s;
+  -webkit-animation: slidedown .8s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+            animation: slidedown .8s;
 }
 
-.content p:first-child {
-  
-}
+/* .delay {
+  animation: fadein .8s;
+  animation-delay: .8s;
+} */
 
-.content p:last-of-type {
-  
+.shake:hover {
+  -webkit-animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+          animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
 }
 
 .actions {
   margin-top: 120px;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 50% 20px 50%;
   grid-template-columns: 50% 50%;
   grid-gap: 20px;
 }
@@ -96,9 +109,15 @@ canvas#waves {
 }
 
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   z-index: 1;
 }
 
@@ -110,10 +129,17 @@ canvas#waves {
 }
 
 .main-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 40px 0;
+  cursor: default;
   
 }
 
@@ -132,9 +158,13 @@ canvas#waves {
 }
 
 h1.circle1 {
+  background-image: -webkit-linear-gradient(334deg, #EEEEEE 3%, #BD10E0 97%);
+  background-image: -o-linear-gradient(334deg, #EEEEEE 3%, #BD10E0 97%);
   background-image: linear-gradient(116deg, #EEEEEE 3%, #BD10E0 97%);
 }
 h1.circle2 {
+  background-image: -webkit-linear-gradient(334deg, #BD10E0 3%, #9013FE 97%);
+  background-image: -o-linear-gradient(334deg, #BD10E0 3%, #9013FE 97%);
   background-image: linear-gradient(116deg, #BD10E0 3%, #9013FE 97%);
 }
 h1.circle {
@@ -163,4 +193,3 @@ img.logo {
     font-size: 16px;
   }
 }
-
