@@ -26,6 +26,8 @@ canvas#waves {
   align-items: center;
   justify-content: center;
   z-index: 1;
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 .content p, .footer p {
@@ -147,5 +149,18 @@ h1.circle {
 img.logo {
   position: fixed;
   margin: 20px;
+}
+
+@media (max-width: 700px) {
+  .content p, .footer p {
+    font-size: 18px;
+  }
+  .main-text h1 {
+    font-size: 70px;
+  }
+  .actions button {
+    width: 100%;
+    font-size: 16px;
+  }
 }
 
