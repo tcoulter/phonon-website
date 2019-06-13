@@ -140,7 +140,8 @@ canvas#waves {
           justify-content: center;
   margin: 40px 0;
   cursor: default;
-  
+  width: 100%;
+  user-select: none;
 }
 
 .main-text h1 {
