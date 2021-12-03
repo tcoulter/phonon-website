@@ -1,0 +1,15 @@
+{
+  "headline": "Hardware-Secured, Off-Chain, Crypto Transactions",
+  "paragraphs": [
+    "Phonon is a community-owned protocol enabling off-chain transfer of digital assets using secure hardware. Phonon lets you turn any crypto into P2P cash: private, fast, & free.",
+    "With no node infrastructure required, Phonon serves as a unique new tool for blockchain scaling, privacy, and trustless cross-chain transactions."
+  ],
+  "buttonOne": {
+    "link": "https://gov.phonon.network",
+    "label": "Forum"
+  },
+  "buttonTwo": {
+    "link": "https://github.com/GridPlus/phonon-network",
+    "label": "Tech Spec"
+  }
+}
