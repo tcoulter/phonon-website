@@ -166,7 +166,10 @@ export function ConvertToPhononButton () {
     return expectedBalance;
   }, [gridBalance, gridDecimals, phononDecimals])
   return (
-    <>
+    <div className="flex flex-col text-center">
+       {(error !== "" || typeof ethersContext.error !== "undefined") && 
+          <p className="text-red-400">{error || ethersContext.error}</p>
+        }
         {ethersContext.active === false && 
           <>
             <button 
@@ -184,11 +187,12 @@ export function ConvertToPhononButton () {
             {/* If we have grid, show redemption dialog. */ }
             {gridBalance > BigInt(0) &&
               <>
-                <p className="bg-green-400">Connected as {address?.substring(0,8)}...{address?.substring(34)}</p>
-                <p className="bg-white">You have {displayBalance(gridBalance, gridDecimals)} GRID</p>
-                {gridAllowance < gridBalance && 
+                <h4 className="text-sm text-pink-200 mt-5 uppercase mb-5">Connected as {address?.substring(0,8)}...{address?.substring(34)}</h4>
+                <p className="text-2xl mb-7">You have <span className="text-indigo-200">{displayBalance(gridBalance, gridDecimals)} GRID</span></p>
+                {gridAllowance < gridBalance &&
                   <button 
                   className="bg-gradient-to-br from-green-200 via-indigo-200 to-pink-200 text-black rounded p-2 px-5 shadow-lg shadow-indigo-300/40"
+                  disabled={isLoading}
                   onClick={async () => {
                     try {
                       setIsLoading(true);
@@ -242,9 +246,5 @@ export function ConvertToPhononButton () {
             }
           </>
         } 
-        {(error !== "" || typeof ethersContext.error !== "undefined") && 
-          <p className="text-red-400">{error || ethersContext.error}</p>
-        }
-
-    </>)
+    </div>)
 }
