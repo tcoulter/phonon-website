@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent, ReactElement, useCallback, useEffect, useMemo, useState } from "react";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { useUserAddress } from "eth-hooks";
-import { useTokenBalance } from "eth-hooks/erc";
 import { ethers } from "ethers";
 import { EthersModalConnector, useEthersContext } from "eth-hooks/context"
 import Layout from "./components/layout";
@@ -130,7 +129,7 @@ const IndexPage: FunctionComponent = (): ReactElement => {
     setGridBalance(gridBalance.toBigInt());
     setGridAllowance(gridAllowance.toBigInt())
     setPhononBalance(phononBalance.toBigInt());
-  }, [gridToken, phononToken, address]);
+  }, [ethersContext.ethersProvider, gridToken, phononToken, address]);
 
   // Poll for new balances. TODO: Figure out why I couldn't get useTokenBalance hook
   // to work. If not using useTokenBalance, poll every new block. 
@@ -226,7 +225,7 @@ const IndexPage: FunctionComponent = (): ReactElement => {
                       try {
                         setIsLoading(true);
                         let tx:TransactionResponse = await gridToken.approve(REDEEMER_CONTRACT_ADDRESS, gridBalance);
-                        await tx.wait(1) // 2 confirmations
+                        await tx.wait(1) // 1 confirmation
                         setIsLoading(false);
                         updateBalances();
                       } catch (e) {
@@ -246,7 +245,7 @@ const IndexPage: FunctionComponent = (): ReactElement => {
                         try {
                           setIsLoading(true);
                           let tx:TransactionResponse = await redeemer.redeem();
-                          let receipt = await tx.wait(1);
+                          await tx.wait(1); // 1 confirmation
                           setIsLoading(false);
                           updateBalances();
                         } catch (e) {
@@ -263,19 +262,19 @@ const IndexPage: FunctionComponent = (): ReactElement => {
               }
 
               {/* If we have phonon and no grid, show success message. */ }
-              {gridBalance == BigInt(0) && phononBalance > BigInt(0) && 
+              {gridBalance === BigInt(0) && phononBalance > BigInt(0) && 
                 <p className="prose my-3">You have successfully redeemed {displayBalance(phononBalance, phononDecimals)} PHONON</p>
               }
               {/* If we have no phonon and no grid, then the user can't redeem (and hasn't yet redeemed).*/}
-              {gridBalance == BigInt(0) && phononBalance == BigInt(0) && 
+              {gridBalance === BigInt(0) && phononBalance === BigInt(0) && 
                 <p className="prose my-3">You do not have any GRID to redeem</p>
               }
-              {gridBalance == BigInt(-1) && 
+              {gridBalance === BigInt(-1) && 
                 <p className="prose my-3">Retrieving GRID balance...</p>
               }
             </>
           } 
-          {(error != "" || typeof ethersContext.error !== "undefined") && 
+          {(error !== "" || typeof ethersContext.error !== "undefined") && 
             <p className="bg-red-400">{error || ethersContext.error}</p>
           }
 
