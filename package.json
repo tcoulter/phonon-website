@@ -19,29 +19,26 @@
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "@walletconnect/web3-provider": "^1.7.0",
-    "autoprefixer": "10.x",
     "cross-env": "7.x",
     "delay-cli": "^1.1.0",
     "eth-hooks": "^3.4.1",
     "eth-provider": "^0.9.8",
     "gh-pages": "^3.2.3",
     "npm-run-all": "4.x",
-    "postcss": "8.x",
-    "postcss-cli": "8.x",
-    "postcss-preset-env": "6.x",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "tailwindcss": "2.x",
     "typescript": "4.x"
   },
   "scripts": {
-    "start": "run-p watch:css react-scripts:start",
-    "build": "run-s build:css react-scripts:build",
+    "start": "run-p env:dev watch:css react-scripts:start",
+    "build": "run-s env:prod build:css react-scripts:build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "cross-env TAILWIND_MODE=build NODE_ENV=production postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css",
-    "watch:css": "cross-env TAILWIND_MODE=watch NODE_ENV=development postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css --watch",
+    "build:css": "cross-env TAILWIND_MODE=build NODE_ENV=production postcss src/assets/styles/index.css -o src/assets/styles/output.css",
+    "watch:css": "cross-env TAILWIND_MODE=watch NODE_ENV=development postcss src/assets/styles/index.css -o src/assets/styles/output.css --watch",
+    "env:dev": "cross-env NODE_ENV=development",
+    "env:prod": "cross-env NODE_ENV=production",
     "react-scripts:start": "delay 5 && react-scripts start",
     "react-scripts:build": "react-scripts build",
     "predeploy": "npm run build",
@@ -61,5 +58,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "postcss-cli": "9.0.1",
+    "purgecss": "4.0.3",
+    "tailwindcss": "^3.0.5"
   }
 }

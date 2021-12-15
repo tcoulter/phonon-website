@@ -1,9 +1,9 @@
+import { EthersAppContext } from "eth-hooks/context";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./assets/styles/index.css";
+import "./assets/styles/output.css";
 import * as serviceWorker from "./serviceWorker";
-import { EthersAppContext } from "eth-hooks/context"
 
 ReactDOM.render(
   <EthersAppContext>

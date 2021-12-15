@@ -1,17 +1,15 @@
 import React from "react";
-// import '../assets/styles/global.css';
-import Header from "./header";
+import { NavBar } from "./NavBar";
 
-//@ts-ignore
-const Layout = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
   return (
     <>
       <div className="md:max-w-2xl px-8 mx-auto">
-        <Header />
+        <NavBar />
       </div>
       <div className="mx-auto max-w-4xl px-4 pb-6">
         <main>
-          <div className="md:max-w-2xl md:px-8 px-3 py-4 mx-auto">
+          <div className="md:max-w-2xl md:px-8 px-3 py-4 mx-auto text-white">
             {children}
           </div>
         </main>
@@ -20,5 +18,3 @@ const Layout = ({ children }) => {
     </>
   );
 };
-
-export default Layout;
