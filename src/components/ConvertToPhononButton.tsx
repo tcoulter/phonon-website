@@ -36,12 +36,14 @@ const ethProvider = require("eth-provider");
 //
 // For Mainnet:
 //    
-//   TBD
-//
+//   Grid: 0x12b19d3e2ccc14da04fae33e63652ce469b3f2fd
+//   Phonon: 0x758B4684BE769E92eeFeA93f60DDA0181eA303Ec
+//   Redeemer: 0xfDcC959b0AA82E288E4154cB1C770C6c4e958a91
+//   
 
-const GRID_TOKEN_ADDRESS = "0x5592ec0cfb4dbc12d3ab100b257153436a1f0fea";
-const PHONON_TOKEN_ADDRESS = "0x4dbcdf9b62e891a7cec5a2568c3f4faf9e8abe2b"
-const REDEEMER_CONTRACT_ADDRESS = "0x49d1ddbC2C847dd7EA03C1813915C12347FBC574";
+const GRID_TOKEN_ADDRESS = "0x12b19d3e2ccc14da04fae33e63652ce469b3f2fd";
+const PHONON_TOKEN_ADDRESS = "0x758B4684BE769E92eeFeA93f60DDA0181eA303Ec";
+const REDEEMER_CONTRACT_ADDRESS = "0xfDcC959b0AA82E288E4154cB1C770C6c4e958a91";
 
 // TODO: Make sure this matches the final deployment in the contracts. 
 const PHONON_REDEMPTION_MULTIPLIER = 155;
