@@ -1,4 +1,5 @@
 import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent, ReactElement } from "react";
 import { ContentBlock } from "./components/ContentBlock";
@@ -18,28 +19,34 @@ const IndexPage: FunctionComponent = (): ReactElement => {
         {hero.paragraphs.map((paragraph) => (
           <p className="prose my-3">{paragraph}</p>
         ))}
-        <div className="flex justify-evenly my-5">
+        <div className="flex justify-evenly flex-wrap gap-4 mt-7">
           <a href={hero.buttonOne.link}>
-            <button className="bg-gradient-to-br from-blue-300 to-green-300 text-black rounded p-2 px-5 mx-2 shadow-lg shadow-cyan-500/40">
+            <button className="bg-gradient-to-br from-blue-300 to-green-300 text-black rounded p-2 px-5 mx-2 shadow-lg shadow-cyan-500/40 hover:shadow-cyan-300/70 hover:hue-rotate-90 hover:shadow-lg ease-in-out duration-300">
               {hero.buttonOne.label}
             </button>
           </a>
           <a href={hero.buttonTwo.link}>
-            <button className="bg-gradient-to-br from-pink-300 to-indigo-300 text-black rounded p-2 px-5 mx-2 shadow-lg shadow-pink-200/40">
+            <button className="bg-gradient-to-br from-green-300 via-blue-200 to-pink-300 text-black rounded p-2 px-5 mx-2 shadow-lg shadow-blue-200/40 hover:shadow-blue-100/70 hover:hue-rotate-90 hover:shadow-lg ease-in-out duration-300">
               {hero.buttonTwo.label}
+            </button>
+          </a>
+          <a href={hero.buttonThree.link}>
+            <button className="bg-gradient-to-br from-pink-300 to-indigo-300 text-black rounded p-2 px-5 mx-2 shadow-lg shadow-pink-200/40 hover:shadow-pink-300/70 hover:hue-rotate-90 hover:shadow-lg ease-in-out duration-300">
+              {hero.buttonThree.label}
             </button>
           </a>
         </div>
       </ContentBlock>
 
       <ContentBlock>
-        <h3 className="md:text-3xl text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-300 to-green-500 mb-5">
+        <h3 className="md:text-3xl text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-200 to-cyan-300 mb-5 text-center">
           {convert.header}
         </h3>
-        {convert.paragraphs.map(paragraph => <p className="prose my-3">{paragraph}</p>)}
-        <div className="flex justify-evenly my-5">
-          <ConvertToPhononButton />
-        </div>
+        {convert.paragraphs.map((paragraph) => (
+          <p className="prose my-3 text-center">{paragraph}</p>
+        ))}
+
+        <ConvertToPhononButton />
       </ContentBlock>
 
       <div className="flex flex-wrap justify-between">
@@ -50,7 +57,9 @@ const IndexPage: FunctionComponent = (): ReactElement => {
           <ul className="list-disc list-inside">
             {resources.map((resource) => (
               <li className="prose" key="">
-                <a href={resource.link} className="text-blue-400">{resource.label}</a>
+                <a href={resource.link} className="text-blue-400">
+                  {resource.label}
+                </a>
               </li>
             ))}
           </ul>
@@ -88,6 +97,12 @@ const IndexPage: FunctionComponent = (): ReactElement => {
                   className="h-5 w-5 mr-2 my-1"
                 />
                 <p>Github</p>
+              </a>
+            </li>
+            <li className="text-pink-200">
+              <a href="https://www.twitter.com/phonondao" className="flex">
+                <FontAwesomeIcon icon={faUsers} className="h-5 w-5 mr-2 my-1" />
+                <p>Forum</p>
               </a>
             </li>
           </ul>

@@ -5,11 +5,15 @@
     "With no node infrastructure required, Phonon serves as a unique new tool for blockchain scaling, privacy, and trustless cross-chain transactions."
   ],
   "buttonOne": {
-    "link": "https://gov.phonon.network",
-    "label": "Forum"
+    "link": "https://blog.phonon.network",
+    "label": "Blog"
   },
   "buttonTwo": {
     "link": "https://github.com/GridPlus/phonon-network",
     "label": "Tech Spec"
+  },
+  "buttonThree": {
+    "link": "https://gov.phonon.network",
+    "label": "Forum"
   }
 }
